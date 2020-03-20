@@ -107,6 +107,9 @@ class SortingRobot:
         #notes 
         #light indicated if swap has happened or not -> assume light on when sorted?
         #sorting
+        # use light as reference point?
+        # if held item > item , swap + move left + swap + move right 
+        # if held item < item, turn of light (big frame fo reference), swap, right, item, left
         # flow is something like -> lights off -> on -> pick up -> compare -> repeat until sorted
 
         while not self.light_is_on():
@@ -114,17 +117,22 @@ class SortingRobot:
             while self.can_move_left():
                 self.swap_item()
                 self.move_left()
-                if self.compare_item() < 0:
+                if self.compare_item() == None:
                     self.swap_item()
                     self.set_light_off()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
             while self.can_move_right():
                 self.swap_item()
                 self.move_right()
-                if self.compare_item() > 0:
+                if self.compare_item() == 1:
                     self.swap_item()
                     self.set_light_off()
-
-
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+     
 
 
 if __name__ == "__main__":
