@@ -96,10 +96,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # if you can move right, that means you're not at the end of arr - swap 
+        while self.can_move_right() == True:
+            self.swap_item()
+    
+            while self.can_move_right() == True:
+                self.move_right()
 
+                if self.compare_item() == 1:
+                    self.swap_item()
 
+            if self.can_move_right() == False:
+                # if item is not none, then you can still move left
+                # if it is, you can basically restart the loop 
+                while self.compare_item() != None:
+                    self.move_left()
+
+                    if self.compare_item() == None:
+                        self.swap_item()
+                        self.move_right()
+        
+            
+        
+                
+                
+                
+                
+         
+         
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
