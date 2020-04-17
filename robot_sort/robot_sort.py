@@ -1,10 +1,3 @@
-
-# * Lay out some numbered cards in a line and try sorting them as if you were the robot.
-# * Come up with a plan and write out your algorithm before coding. If your plan is sound but you don't reach a working implementation in three hours, you may receive partial credit.
-# * There is no efficiency requirement but you may lose points for an unreasonably slow solution. Tests should run in far less than 1 second.
-# * We discussed a sorting method this week that might be useful. Which one?
-# * The robot has exactly one bit of memory: its light. Why is this important?
-
 class SortingRobot:
     def __init__(self, l):
         """
@@ -103,36 +96,8 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-
-        #notes 
-        #light indicated if swap has happened or not -> assume light on when sorted?
-        #sorting
-        # use light as reference point?
-        # if held item > item , swap + move left + swap + move right 
-        # if held item < item, turn of light (big frame fo reference), swap, right, item, left
-        # flow is something like -> lights off -> on -> pick up -> compare -> repeat until sorted
-
-        while not self.light_is_on():
-            self.set_light_on()
-            while self.can_move_left():
-                self.swap_item()
-                self.move_left()
-                if self.compare_item() == None:
-                    self.swap_item()
-                    self.set_light_off()
-                self.move_right()
-                self.swap_item()
-                self.move_left()
-            while self.can_move_right():
-                self.swap_item()
-                self.move_right()
-                if self.compare_item() == 1:
-                    self.swap_item()
-                    self.set_light_off()
-                self.move_left()
-                self.swap_item()
-                self.move_right()
-     
+        # Fill this out
+        pass
 
 
 if __name__ == "__main__":
